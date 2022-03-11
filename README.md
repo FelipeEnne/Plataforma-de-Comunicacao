@@ -4,7 +4,12 @@
 
 Separar o FrontEnd do BackEnd em pastas.
 
-SQL - PostgresSQL 12
+PostgresSQL (12)
+npm (8.3)
 
-1 - BackEnd
+1 - Backnnd
 * Instalando dependencias (npm)
+* config DB (PostgreSQL)
+  * CREATE DATABASE communication;
+  * config knexfile.js usar knexfile-template.js como exemplo.
+  * knex migrate:make create_table_communication;
