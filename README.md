@@ -2,4 +2,9 @@
 
 ### Setup
 
-Separa o FrontEnd do BackEnd em pastas.
+Separar o FrontEnd do BackEnd em pastas.
+
+SQL - PostgresSQL 12
+
+1 - BackEnd
+* Instalando dependencias (npm)
