@@ -7,11 +7,14 @@ exports.up = function (knex) {
     table.increments("id").primary();
     table.string("sender").notNullable();
     table.string("recipient").notNullable();
-    table.text("message").notNullable();
+    table.text("communicationMessage").notNullable();
     table.datetime("shippingTime", { precision: 6, useTz: true }).notNullable();
-    table.specificType("messageFormat", "text ARRAY").notNullable();
-    table.timestamp("delete_at");
-    table.timestamp("created_at", { precision: 6 }).defaultTo(knex.fn.now(6));
+    table.specificType("communicationFormat", "text ARRAY").notNullable();
+    table.timestamp("deleteAt");
+    table.timestamp("createdAt", { precision: 6 }).defaultTo(knex.fn.now(6));
+    table
+      .enu("communicationStatus", ["pending", "sending", "sent"])
+      .defaultTo("pending");
   });
 };
 

@@ -1,14 +1,15 @@
 module.exports = (app) => {
-  const { existsOrError, notExistsOrError } = app.api.validation;
+  const { existsOrError } = app.api.validation;
 
   const save = async (req, res) => {
     const communication = { ...req.body };
+
     try {
       existsOrError(communication.sender, "Mandatário não informado");
       existsOrError(communication.recipient, "Destinatário  não informado");
-      existsOrError(communication.message, "Sem menssagem");
+      existsOrError(communication.communicationMessage, "Sem menssagem");
       existsOrError(communication.shippingTime, "Sem data para envio");
-      existsOrError(communication.messageFormat, "Sem forma de envio");
+      existsOrError(communication.communicationFormat, "Sem forma de envio");
     } catch (msg) {
       return res.status(400).send(msg);
     }
@@ -27,11 +28,12 @@ module.exports = (app) => {
         "id",
         "sender",
         "recipient",
-        "message",
+        "communicationMessage",
         "shippingTime",
-        "messageFormat"
+        "communicationFormat",
+        "communicationStatus"
       )
-      .whereNull("delete_at")
+      .whereNull("deleteAt")
       .then((communication) => res.json(communication))
       .catch((err) => res.status(500).send(err));
   };

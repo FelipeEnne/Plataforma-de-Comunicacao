@@ -11,6 +11,9 @@ consign()
   .then("./config/routes.js")
   .into(app);
 
-app.listen(3000, () => {
-  console.log("Running ...");
-});
+if (!module.parent) {
+  app.listen(process.env.PORT, () =>
+    console.log(`Runing ${process.env.PORT}!`)
+  );
+}
+module.exports = app;
