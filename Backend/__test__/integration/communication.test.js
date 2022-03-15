@@ -20,7 +20,7 @@ describe("Routes: communication", () => {
             sender: "sender",
             recipient: "recipient",
             communicationMessage: "message",
-            shippingTime: "2025-03-17 18:29:21.758315-07",
+            deliveryDate: "2030-03-25T01:29:21Z",
             communicationFormat: ["sms", "email"],
           })
         )

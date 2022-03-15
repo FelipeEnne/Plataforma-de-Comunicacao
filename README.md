@@ -13,6 +13,8 @@ knex (1)
 * config DB (PostgreSQL)
   * psql -U postgres;
   * CREATE DATABASE communication;
+  * CREATE DATABASE communication_test;
   * npm i -g knex;
-  * config knexfile.js usar knexfile-template.js como exemplo.
-  * Run: knex migrate:latest  
+  * config .env usar .env-template como exemplo;
+  * Run: knex migrate:latest;
+  * Run test: npm test;

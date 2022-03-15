@@ -12,8 +12,6 @@ consign()
   .into(app);
 
 if (!module.parent) {
-  app.listen(process.env.PORT, () =>
-    console.log(`Runing ${process.env.PORT}!`)
-  );
+  app.listen(process.env.PORT, () => console.log(`Runing ${process.env.PORT}`));
 }
 module.exports = app;

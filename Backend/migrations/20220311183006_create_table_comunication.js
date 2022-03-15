@@ -6,9 +6,11 @@ exports.up = function (knex) {
   return knex.schema.createTable("communication", (table) => {
     table.increments("id").primary();
     table.string("sender").notNullable();
+    table.string("senderId").notNullable().defaultTo(1);
     table.string("recipient").notNullable();
+    table.string("recipientId").notNullable().defaultTo(1);
     table.text("communicationMessage").notNullable();
-    table.datetime("shippingTime", { precision: 6, useTz: true }).notNullable();
+    table.datetime("deliveryDate", { precision: 6, useTz: true }).notNullable();
     table.specificType("communicationFormat", "text ARRAY").notNullable();
     table.timestamp("deleteAt");
     table.timestamp("createdAt", { precision: 6 }).defaultTo(knex.fn.now(6));

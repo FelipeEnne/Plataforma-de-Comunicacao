@@ -1,5 +1,10 @@
 module.exports = (app) => {
-  const { existsOrError } = app.api.validation;
+  const {
+    existsOrError,
+    verifyDeliveryDate,
+    verifyIfDeliveryDatePast,
+    verifyValidCommunicationFormat,
+  } = app.api.validation;
 
   const save = async (req, res) => {
     const communication = { ...req.body };
@@ -8,8 +13,17 @@ module.exports = (app) => {
       existsOrError(communication.sender, "Mandatário não informado");
       existsOrError(communication.recipient, "Destinatário  não informado");
       existsOrError(communication.communicationMessage, "Sem menssagem");
-      existsOrError(communication.shippingTime, "Sem data para envio");
+      existsOrError(communication.deliveryDate, "Sem data para envio");
+      verifyDeliveryDate(communication.deliveryDate, "Data inválida");
+      verifyIfDeliveryDatePast(
+        communication.deliveryDate,
+        "Essa data já passou"
+      );
       existsOrError(communication.communicationFormat, "Sem forma de envio");
+      verifyValidCommunicationFormat(
+        communication.communicationFormat,
+        "Forma de envio inválida"
+      );
     } catch (msg) {
       return res.status(400).send(msg);
     }
@@ -29,7 +43,7 @@ module.exports = (app) => {
         "sender",
         "recipient",
         "communicationMessage",
-        "shippingTime",
+        "deliveryDate",
         "communicationFormat",
         "communicationStatus"
       )

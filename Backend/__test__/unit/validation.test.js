@@ -1,10 +1,10 @@
 const app = require("../../index.js");
 
-describe("Valitador the communication inputs", () => {
+describe("Valitador the communication inputs (existsOrError)", () => {
   const { existsOrError } = app.api.validation;
   const errorCommunication = "Error";
 
-  test("(existsOrError) validate empty", () => {
+  test("Validate empty", () => {
     const emptyCommunication = "";
 
     const testEmptyCommunication = () => {
@@ -13,37 +13,101 @@ describe("Valitador the communication inputs", () => {
     expect(testEmptyCommunication).toThrow(errorCommunication);
   });
 
-  test("(existsOrError) validate empty array", () => {
+  test("Validate empty array", () => {
     const emptyArray = [];
 
-    const testEmptyCommunication = () => {
+    const testEmptyArrayCommunication = () => {
       existsOrError(emptyArray, errorCommunication);
     };
-    expect(testEmptyCommunication).toThrow(errorCommunication);
+    expect(testEmptyArrayCommunication).toThrow(errorCommunication);
   });
 
-  test("(existsOrError) validate undefined", () => {
+  test("Validate undefined", () => {
     const undefinedCommunication = undefined;
 
-    const testEmptyCommunication = () => {
+    const testUndefinedCommunication = () => {
       existsOrError(undefinedCommunication, errorCommunication);
     };
-    expect(testEmptyCommunication).toThrow(errorCommunication);
+    expect(testUndefinedCommunication).toThrow(errorCommunication);
   });
 
-  test("(existsOrError) validate empty null", () => {
+  test("Validate empty null", () => {
     const nullCommunication = null;
-    const testEmptyCommunication = () => {
+    const testNullCommunication = () => {
       existsOrError(nullCommunication, errorCommunication);
     };
-    expect(testEmptyCommunication).toThrow(errorCommunication);
+    expect(testNullCommunication).toThrow(errorCommunication);
   });
 
-  test("(existsOrError) valid input", () => {
+  test("Valid input", () => {
     const validCommunication = "test";
-    const testEmptyCommunication = () => {
+    const testValidCommunication = () => {
       existsOrError(validCommunication, errorCommunication);
     };
-    expect(testEmptyCommunication()).toBe(undefined);
+    expect(testValidCommunication()).toBe(undefined);
+  });
+});
+
+describe("Valitador the communication date", () => {
+  const { verifyDeliveryDate, verifyIfDeliveryDatePast } = app.api.validation;
+  const errorCommunication = "Error";
+
+  test("Invalid number date", () => {
+    const invalidDate = 123456;
+
+    const testInvalidDate = () => {
+      verifyDeliveryDate(invalidDate, errorCommunication);
+    };
+    expect(testInvalidDate).toThrow(errorCommunication);
+  });
+
+  test("Invalid string date", () => {
+    const invalidDate = "test";
+
+    const testInvalidDate = () => {
+      verifyDeliveryDate(invalidDate, errorCommunication);
+    };
+    expect(testInvalidDate).toThrow(errorCommunication);
+  });
+
+  test("Valid date", () => {
+    const validDate = "2030-03-25T01:29:21Z";
+
+    const testValidDate = () => {
+      verifyDeliveryDate(validDate, errorCommunication);
+    };
+    expect(testValidDate()).toBe(undefined);
+  });
+
+  test("Validate if date has passed.", () => {
+    const invalidDate = "2021-03-25T01:29:21Z";
+
+    const testInvalidCommunication = () => {
+      verifyIfDeliveryDatePast(invalidDate, errorCommunication);
+    };
+    expect(testInvalidCommunication).toThrow(errorCommunication);
+  });
+});
+
+describe("Valitador the communication format", () => {
+  const { verifyValidCommunicationFormat } = app.api.validation;
+  const errorCommunication = "Error";
+
+  test("Invalid format", () => {
+    const invalidFormat = ["sms", "email", "whatsap"];
+
+    const testInvalidFormat = () => {
+      verifyValidCommunicationFormat(invalidFormat, errorCommunication);
+    };
+    expect(testInvalidFormat).toThrow(errorCommunication);
+  });
+
+  test("Valid format", () => {
+    const validFormat = ["sms", "email", "push", "whatsapp"];
+
+    const testValidFormat = () => {
+      verifyValidCommunicationFormat(validFormat, errorCommunication);
+    };
+    expect(testValidFormat()).toBe(undefined);
   });
 });
