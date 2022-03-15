@@ -10,12 +10,12 @@ exports.up = function (knex) {
     table.string("recipient").notNullable();
     table.string("recipientId").notNullable().defaultTo(1);
     table.text("communicationMessage").notNullable();
-    table.datetime("deliveryDate", { precision: 6, useTz: true }).notNullable();
+    table.string("deliveryDate").notNullable();
     table.specificType("communicationFormat", "text ARRAY").notNullable();
     table.timestamp("deleteAt");
     table.timestamp("createdAt", { precision: 6 }).defaultTo(knex.fn.now(6));
     table
-      .enu("communicationStatus", ["pending", "sending", "sent"])
+      .enu("communicationStatus", ["pending", "sending", "send"])
       .defaultTo("pending");
   });
 };
