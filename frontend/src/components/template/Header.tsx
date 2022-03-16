@@ -1,18 +1,14 @@
 import React from "react";
 
-import "./Header.css";
+import { HeaderProps } from "../../utils/models";
 
-export interface HeaderProps {
-  icon?: string;
-  title?: string;
-  subtitle?: string;
-}
+import "./Header.css";
 
 const Header: React.FC<HeaderProps> = (props) => {
   return (
     <header className="header d-none d-sm-flex flex-column">
       <h1 className="mt-3">
-        <i className={props.icon}></i>
+        <span className="p-1">{props.icon}</span>
         {props.title}
       </h1>
       <p className="lead text-muted">{props.subtitle}</p>

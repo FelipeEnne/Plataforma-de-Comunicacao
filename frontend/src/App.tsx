@@ -8,6 +8,7 @@ import Footer from "./components/template/Footer";
 import Nav from "./components/template/Nav";
 
 import Home from "./components/home/Home";
+import Communications from "./components/communications/Communications";
 
 import "./App.css";
 
@@ -15,6 +16,7 @@ const PLRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/comunications" element={<Communications />} />
       <Route path="/*" element={<Home />} />
     </Routes>
   );

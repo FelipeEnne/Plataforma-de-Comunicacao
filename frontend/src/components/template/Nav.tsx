@@ -7,13 +7,13 @@ const Nav: React.FC = () => {
   return (
     <aside className="menu-area">
       <nav className="menu">
-        <Link to="/">
+        <Link to="/" className="text-sm-center">
           <i className="fa fa-home"></i> Home
         </Link>
-        <Link to="/criar-comunicação">
+        <Link to="/create-comunication" className="text-sm-center">
           <i className="fa fa-users"></i> Criar comunicação
         </Link>
-        <Link to="/comunicações">
+        <Link to="/comunications" className="text-sm-center">
           <i className="fa fa-users"></i> Comunicações
         </Link>
       </nav>

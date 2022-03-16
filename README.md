@@ -14,7 +14,16 @@ knex (1)
   * psql -U postgres;
   * CREATE DATABASE communication;
   * config .env usar .env-template como exemplo;
+  * cd backend
+  * npm start
 2 - Test Backend 
   * CREATE DATABASE communication_test;
   * Run test: npm test;
 
+
+1 - Frontend
+* Instalando dependencias (npm) Run: npm i;
+  * cd frontend
+  * npm start
+2 - Test frontend 
+  * Run test: npm test;

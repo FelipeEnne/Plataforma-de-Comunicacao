@@ -1,10 +1,11 @@
 import React from "react";
+import { FaHome } from "react-icons/fa";
 
 import Main from "../template/Main";
 
 const Home: React.FC = () => {
   return (
-    <Main icon="fa fa-home" title="Home" subtitle="Plataforma de comunicação">
+    <Main icon={<FaHome />} title="Home" subtitle="Plataforma de comunicação">
       <div className="display-4">Bem Vindo!</div>
       <hr />
       <p className="mb-0">

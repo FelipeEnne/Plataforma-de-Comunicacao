@@ -1,5 +1,6 @@
 import React from "react";
-import Header, { HeaderProps } from "./Header";
+import Header from "./Header";
+import { HeaderProps } from "../../utils/models";
 
 import "./Main.css";
 
