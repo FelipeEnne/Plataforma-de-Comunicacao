@@ -4,7 +4,10 @@ const config = {
   verbose: true,
   bail: true,
   clearMocks: true,
-  testEnvironment: "node"
+  collectCoverage: true,
+  coverageDirectory: "__test__/coverage",
+  collectCoverageFrom: ["api/**"],
+  testEnvironment: "node",
 };
 
 module.exports = config;

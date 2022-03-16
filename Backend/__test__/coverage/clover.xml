@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1647436479044" clover="3.2.0">
+  <project timestamp="1647436479044" name="All files">
+    <metrics statements="45" coveredstatements="43" conditionals="22" coveredconditionals="21" methods="14" coveredmethods="12" elements="81" coveredelements="76" complexity="0" loc="45" ncloc="45" packages="1" files="2" classes="2"/>
+    <file name="communication.js" path="C:\Users\felip\OneDrive\Área de Trabalho\Projetos\Testes\Plataforma-de-Comunicacao\backend\api\communication.js">
+      <metrics statements="28" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="6"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="13" count="2" type="stmt"/>
+      <line num="14" count="2" type="stmt"/>
+      <line num="15" count="2" type="stmt"/>
+      <line num="16" count="2" type="stmt"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="35" count="0" type="stmt"/>
+      <line num="38" count="2" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="52" count="1" type="stmt"/>
+      <line num="53" count="0" type="stmt"/>
+      <line num="56" count="2" type="stmt"/>
+      <line num="57" count="2" type="stmt"/>
+      <line num="58" count="2" type="stmt"/>
+      <line num="63" count="2" type="stmt"/>
+      <line num="64" count="1" type="stmt"/>
+      <line num="66" count="1" type="stmt"/>
+      <line num="70" count="2" type="stmt"/>
+    </file>
+    <file name="validation.js" path="C:\Users\felip\OneDrive\Área de Trabalho\Projetos\Testes\Plataforma-de-Comunicacao\backend\api\validation.js">
+      <metrics statements="17" coveredstatements="17" conditionals="22" coveredconditionals="21" methods="6" coveredmethods="6"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="3" count="16" type="cond" truecount="2" falsecount="0"/>
+      <line num="4" count="12" type="cond" truecount="4" falsecount="0"/>
+      <line num="5" count="11" type="cond" truecount="3" falsecount="1"/>
+      <line num="6" count="11" type="stmt"/>
+      <line num="10" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="3" type="stmt"/>
+      <line num="16" count="2" type="stmt"/>
+      <line num="20" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="25" count="3" type="stmt"/>
+      <line num="26" count="9" type="cond" truecount="6" falsecount="0"/>
+      <line num="27" count="8" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="31" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="32" count="2" type="stmt"/>
+      <line num="35" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>

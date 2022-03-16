@@ -7,8 +7,8 @@ exports.up = function (knex) {
     table.increments("id").primary();
     table.string("sender").notNullable();
     table.string("senderId").notNullable().defaultTo(1);
-    table.string("recipient").notNullable();
-    table.string("recipientId").notNullable().defaultTo(1);
+    table.string("receiver").notNullable();
+    table.string("receiverId").notNullable().defaultTo(1);
     table.text("communicationMessage").notNullable();
     table.string("deliveryDate").notNullable();
     table.specificType("communicationFormat", "text ARRAY").notNullable();

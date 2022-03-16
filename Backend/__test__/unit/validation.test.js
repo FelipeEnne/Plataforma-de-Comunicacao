@@ -41,10 +41,7 @@ describe("Valitador the communication inputs (existsOrError)", () => {
 
   test("Valid input", () => {
     const validCommunication = "test";
-    const testValidCommunication = () => {
-      existsOrError(validCommunication, errorCommunication);
-    };
-    expect(testValidCommunication()).toBe(undefined);
+    expect(existsOrError(validCommunication, errorCommunication)).toBe(true);
   });
 });
 
@@ -73,10 +70,7 @@ describe("Valitador the communication date", () => {
   test("Valid date", () => {
     const validDate = "2030-03-25T01:29:21Z";
 
-    const testValidDate = () => {
-      verifyDeliveryDate(validDate, errorCommunication);
-    };
-    expect(testValidDate()).toBe(undefined);
+    expect(verifyDeliveryDate(validDate, errorCommunication)).toBe(true);
   });
 
   test("Validate if date has passed.", () => {
@@ -105,9 +99,8 @@ describe("Valitador the communication format", () => {
   test("Valid format", () => {
     const validFormat = ["sms", "email", "push", "whatsapp"];
 
-    const testValidFormat = () => {
-      verifyValidCommunicationFormat(validFormat, errorCommunication);
-    };
-    expect(testValidFormat()).toBe(undefined);
+    expect(
+      verifyValidCommunicationFormat(validFormat, errorCommunication)
+    ).toBe(true);
   });
 });

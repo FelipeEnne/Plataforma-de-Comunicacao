@@ -11,7 +11,7 @@ module.exports = (app) => {
 
     try {
       existsOrError(communication.sender, "Mandatário não informado");
-      existsOrError(communication.recipient, "Destinatário  não informado");
+      existsOrError(communication.receiver, "Destinatário  não informado");
       existsOrError(communication.communicationMessage, "Sem menssagem");
       existsOrError(communication.deliveryDate, "Sem data para envio");
       verifyDeliveryDate(communication.deliveryDate, "Data inválida");
@@ -41,13 +41,14 @@ module.exports = (app) => {
       .select(
         "id",
         "sender",
-        "recipient",
+        "receiver",
         "communicationMessage",
         "deliveryDate",
         "communicationFormat",
         "communicationStatus"
       )
       .whereNull("deleteAt")
+      .orderBy("deliveryDate", "asc")
       .then((communication) => res.json(communication))
       .catch((err) => res.status(500).send(err));
   };
@@ -59,15 +60,10 @@ module.exports = (app) => {
         .where({ id: req.params.id })
         .del();
 
-      try {
-        existsOrError(rowsDeleted, "Comunicação não encontrada");
-      } catch (msg) {
-        res.status(400).send(msg);
-      }
-
+      existsOrError(rowsDeleted, "Comunicação não encontrada");
       res.status(204).send();
     } catch (msg) {
-      res.status(500).send(msg);
+      res.status(400).send(msg);
     }
   };
 

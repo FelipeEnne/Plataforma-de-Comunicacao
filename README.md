@@ -2,19 +2,19 @@
 
 ### Setup
 
-Separar o FrontEnd do BackEnd em pastas.
+Separar o frontEnd do backEnd em pastas.
 
 PostgresSQL (12)
 npm (8.3)
 knex (1)
 
-1 - Backnnd
+1 - Backend
 * Instalando dependencias (npm) Run: npm i;
 * config DB (PostgreSQL)
   * psql -U postgres;
   * CREATE DATABASE communication;
-  * CREATE DATABASE communication_test;
-  * npm i -g knex;
   * config .env usar .env-template como exemplo;
-  * Run: knex migrate:latest;
+2 - Test Backend 
+  * CREATE DATABASE communication_test;
   * Run test: npm test;
+

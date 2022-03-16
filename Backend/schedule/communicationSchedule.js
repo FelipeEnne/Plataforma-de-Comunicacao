@@ -9,7 +9,7 @@ module.exports = (app) => {
       .select(
         "id",
         "sender",
-        "recipient",
+        "receiver",
         "communicationMessage",
         "deliveryDate",
         "communicationFormat",
