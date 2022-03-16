@@ -5,11 +5,11 @@ export interface HeaderProps {
 }
 
 export type CommunicationType = {
-  id: number;
+  id?: number;
   sender: string;
   receiver: string;
   communicationMessage: string;
   deliveryDate: string;
   communicationFormat: string[];
-  communicationStatus: string;
+  communicationStatus?: string;
 };

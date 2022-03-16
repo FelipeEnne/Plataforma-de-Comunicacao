@@ -9,6 +9,7 @@ import Nav from "./components/template/Nav";
 
 import Home from "./components/home/Home";
 import Communications from "./components/communications/Communications";
+import CreateComunication from "./components/communications/CreateComunication";
 
 import "./App.css";
 
@@ -17,6 +18,7 @@ const PLRoutes: React.FC = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/comunications" element={<Communications />} />
+      <Route path="//create-comunication" element={<CreateComunication />} />
       <Route path="/*" element={<Home />} />
     </Routes>
   );

@@ -5,7 +5,6 @@ import axios from "axios";
 import { FaCommentAlt, FaTrash } from "react-icons/fa";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-import Divider from "@mui/material/Divider";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -30,7 +29,7 @@ const CardCommunications: React.FC<CardCommunicationssProps> = ({
     <Grid container spacing={2}>
       {communicationArray.map((communication) => {
         return (
-          <Grid item xs={12} md={6} pb={1}>
+          <Grid key={communication.id} item xs={12} md={6} pb={1}>
             <Card sx={{ minWidth: 275 }} variant="outlined">
               <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary">
@@ -53,7 +52,7 @@ const CardCommunications: React.FC<CardCommunicationssProps> = ({
                   <IconButton
                     color="error"
                     onClick={() => {
-                      removeCommunication(communication.id);
+                      removeCommunication(communication.id!);
                     }}
                   >
                     <FaTrash />
