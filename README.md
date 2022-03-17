@@ -36,7 +36,7 @@ Plataforma em que você pode agendar uma comunicação (processo seletivo Magalu
 * config Banco de Dados (PostgreSQL):
   * psql -U postgres (Conectar ao banco de dados com o nome postgres);
   * CREATE DATABASE communication (Criar database communication);
-  * config .env usar .env-template como exemplo.
+  * config .env usar .env-template como exemplo (DB_PASS_DEV);.
 * Start Backend:
   * cd backend (Entrar na pasta Backend);
   * Run: npm i (Instalar dependências);
