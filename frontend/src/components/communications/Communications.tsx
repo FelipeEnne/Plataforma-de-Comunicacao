@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { FaCommentAlt, FaTrash } from "react-icons/fa";
 import Grid from "@mui/material/Grid";
@@ -73,18 +75,52 @@ const Communications: React.FC = () => {
   >([]);
 
   useEffect(() => {
-    axios(baseUrl).then((resp) => {
-      SetCommunicationArray(resp.data);
-    });
+    axios(baseUrl)
+      .then((resp) => {
+        SetCommunicationArray(resp.data);
+      })
+      .catch(() => {
+        toast.error("Houve um problema", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   }, []);
 
   const removeCommunication = (id: number) => {
-    axios.delete(`${baseUrl}/${id}`).then(() => {
-      const communicationArrayUpadted = communicationArray.filter(
-        (u) => u.id !== id
-      );
-      SetCommunicationArray(communicationArrayUpadted);
-    });
+    axios
+      .delete(`${baseUrl}/${id}`)
+      .then(() => {
+        const communicationArrayUpadted = communicationArray.filter(
+          (u) => u.id !== id
+        );
+        SetCommunicationArray(communicationArrayUpadted);
+        toast.success("Comunicação deletada com sucesso", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      })
+      .catch(() => {
+        toast.error("Houve um problema", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   };
 
   return (
@@ -93,6 +129,7 @@ const Communications: React.FC = () => {
       title="Comunicações"
       subtitle="Plataforma de comunicação"
     >
+      <ToastContainer />
       <CardCommunications
         communicationArray={communicationArray}
         removeCommunication={removeCommunication}

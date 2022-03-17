@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { DateTime } from "luxon";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { FaCommentDots } from "react-icons/fa";
 import TextField, { TextFieldProps } from "@mui/material/TextField";
@@ -53,7 +55,7 @@ const ComunicationForm: React.FC = () => {
     SetCommunication({ ...initalCommunicationState, communicationFormat: [] });
   };
 
-  const sendMessagePost = () => {
+  const sendComunication = () => {
     const method = "post";
     const updateCommunication = {
       ...communication,
@@ -61,18 +63,35 @@ const ComunicationForm: React.FC = () => {
         .toUTC()
         .toString(),
     };
-    console.log(updateCommunication);
-    axios[method](baseUrl, updateCommunication).then(() => {
-      clearInputs();
-    });
+    axios[method](baseUrl, updateCommunication)
+      .then(() => {
+        clearInputs();
+        toast.success("Comunicação salva com sucesso", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      })
+      .catch((e) => {
+        toast.error(e.response.data, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   };
-
-  console.log(communication);
 
   return (
     <div>
       <TextField
-        required
         id="sender"
         label="Remetente"
         variant="standard"
@@ -86,7 +105,6 @@ const ComunicationForm: React.FC = () => {
         }}
       />
       <TextField
-        required
         id="receiver"
         label="Destinatário"
         variant="standard"
@@ -100,7 +118,6 @@ const ComunicationForm: React.FC = () => {
         }}
       />
       <TextareaAutosize
-        required
         aria-label="communicationMessage"
         minRows={5}
         placeholder="Mensagem"
@@ -119,7 +136,6 @@ const ComunicationForm: React.FC = () => {
           renderInput={(props: TextFieldProps) => (
             <TextField
               {...props}
-              required
               variant="standard"
               sx={{ width: "100%", mt: 2, mb: 2 }}
             />
@@ -190,7 +206,7 @@ const ComunicationForm: React.FC = () => {
             sx={{ mr: 2 }}
             variant="contained"
             onClick={() => {
-              sendMessagePost();
+              sendComunication();
             }}
           >
             Enviar
@@ -217,6 +233,7 @@ const CreateComunication: React.FC = () => {
       title="Criação de comunicação"
       subtitle="Plataforma de comunicação"
     >
+      <ToastContainer />
       <ComunicationForm />
     </Main>
   );

@@ -217,7 +217,7 @@
     const communication = { ...req.body };
 &nbsp;
     try {
-      existsOrError(communication.sender, "Mandatário não informado");
+      existsOrError(communication.sender, "Remetente não informado");
       existsOrError(communication.receiver, "Destinatário  não informado");
       existsOrError(communication.communicationMessage, "Sem menssagem");
       existsOrError(communication.deliveryDate, "Sem data para envio");

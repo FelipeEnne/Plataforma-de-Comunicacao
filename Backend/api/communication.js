@@ -10,7 +10,7 @@ module.exports = (app) => {
     const communication = { ...req.body };
 
     try {
-      existsOrError(communication.sender, "Mandatário não informado");
+      existsOrError(communication.sender, "Remetente não informado");
       existsOrError(communication.receiver, "Destinatário  não informado");
       existsOrError(communication.communicationMessage, "Sem menssagem");
       existsOrError(communication.deliveryDate, "Sem data para envio");
