@@ -54,5 +54,11 @@
   },
   "devDependencies": {
     "@types/luxon": "^2.3.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "resetMocks": false
   }
 }

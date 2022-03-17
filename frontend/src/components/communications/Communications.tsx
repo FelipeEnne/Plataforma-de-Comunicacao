@@ -29,9 +29,16 @@ const CardCommunications: React.FC<CardCommunicationssProps> = ({
 
   return (
     <Grid container spacing={2}>
-      {communicationArray.map((communication) => {
+      {communicationArray.map((communication, index) => {
         return (
-          <Grid key={communication.id} item xs={12} md={6} pb={1}>
+          <Grid
+            key={communication.id}
+            data-testid={`comunication-${index}`}
+            item
+            xs={12}
+            md={6}
+            pb={1}
+          >
             <Card sx={{ minWidth: 275 }} variant="outlined">
               <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary">
@@ -74,8 +81,8 @@ const Communications: React.FC = () => {
     CommunicationType[]
   >([]);
 
-  useEffect(() => {
-    axios(baseUrl)
+  const updateCommunication = async () => {
+    await axios(baseUrl)
       .then((resp) => {
         SetCommunicationArray(resp.data);
       })
@@ -90,10 +97,10 @@ const Communications: React.FC = () => {
           progress: undefined,
         });
       });
-  }, []);
+  };
 
-  const removeCommunication = (id: number) => {
-    axios
+  const removeCommunication = async (id: number) => {
+    await axios
       .delete(`${baseUrl}/${id}`)
       .then(() => {
         const communicationArrayUpadted = communicationArray.filter(
@@ -122,6 +129,10 @@ const Communications: React.FC = () => {
         });
       });
   };
+
+  useEffect(() => {
+    updateCommunication();
+  }, []);
 
   return (
     <Main

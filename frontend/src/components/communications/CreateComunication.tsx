@@ -55,15 +55,15 @@ const ComunicationForm: React.FC = () => {
     SetCommunication({ ...initalCommunicationState, communicationFormat: [] });
   };
 
-  const sendComunication = () => {
-    const method = "post";
+  const sendComunication = async () => {
     const updateCommunication = {
       ...communication,
       deliveryDate: DateTime.fromISO(communication.deliveryDate)
         .toUTC()
         .toString(),
     };
-    axios[method](baseUrl, updateCommunication)
+    await axios
+      .post(baseUrl, updateCommunication)
       .then(() => {
         clearInputs();
         toast.success("Comunicação salva com sucesso", {
@@ -93,6 +93,7 @@ const ComunicationForm: React.FC = () => {
     <div>
       <TextField
         id="sender"
+        data-testid="sender"
         label="Remetente"
         variant="standard"
         sx={{ m: 1, width: "45%" }}
@@ -106,6 +107,7 @@ const ComunicationForm: React.FC = () => {
       />
       <TextField
         id="receiver"
+        data-testid="receiver"
         label="Destinatário"
         variant="standard"
         sx={{ m: 1, width: "45%", mb: 2 }}
@@ -138,6 +140,7 @@ const ComunicationForm: React.FC = () => {
               {...props}
               variant="standard"
               sx={{ width: "100%", mt: 2, mb: 2 }}
+              id="date-time-input"
             />
           )}
           label="Data/Hora de envio"
@@ -156,6 +159,7 @@ const ComunicationForm: React.FC = () => {
         <FormControlLabel
           control={
             <Checkbox
+              data-testid="checkbox-email"
               checked={communication.communicationFormat.includes("email")}
               onChange={() => {
                 handleMessageFormat("email");
@@ -167,6 +171,7 @@ const ComunicationForm: React.FC = () => {
         <FormControlLabel
           control={
             <Checkbox
+              data-testid="checkbox-sms"
               checked={communication.communicationFormat.includes("sms")}
               onChange={() => {
                 handleMessageFormat("sms");
@@ -178,6 +183,7 @@ const ComunicationForm: React.FC = () => {
         <FormControlLabel
           control={
             <Checkbox
+              data-testid="checkbox-push"
               checked={communication.communicationFormat.includes("push")}
               onChange={() => {
                 handleMessageFormat("push");
@@ -189,6 +195,7 @@ const ComunicationForm: React.FC = () => {
         <FormControlLabel
           control={
             <Checkbox
+              data-testid="checkbox-whatsapp"
               checked={communication.communicationFormat.includes("whatsapp")}
               onChange={() => {
                 handleMessageFormat("whatsapp");

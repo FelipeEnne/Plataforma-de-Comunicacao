@@ -18,7 +18,7 @@ const PLRoutes: React.FC = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/comunications" element={<Communications />} />
-      <Route path="//create-comunication" element={<CreateComunication />} />
+      <Route path="/create-comunication" element={<CreateComunication />} />
       <Route path="/*" element={<Home />} />
     </Routes>
   );
