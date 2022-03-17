@@ -30,7 +30,7 @@ Plataforma em que você pode agendar uma comunicação (processo seletivo Magalu
 * TypeScript
 * Jest
 
-## Sobre o projeto
+## Execute no seu computador
 
 1 - Backend
 * config Banco de Dados (PostgreSQL):
