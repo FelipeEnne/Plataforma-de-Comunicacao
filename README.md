@@ -35,14 +35,14 @@ Plataforma em que você pode agendar uma comunicação (processo seletivo Magalu
 1 - Backend
 * config Banco de Dados (PostgreSQL):
   * psql -U postgres (Conectar ao banco de dados com o nome postgres);
-  * CREATE DATABASE communication (Criar database communication);
-  * config .env usar .env-template como exemplo (DB_PASS_DEV);.
+  * CREATE DATABASE communication; (Criar database communication);
+  * config .env usar .env-template como exemplo (DB_PASS_DEV).
 * Start Backend:
   * cd backend (Entrar na pasta Backend);
   * Run: npm i (Instalar dependências);
   * Run: npm start (Iniciar o Backend).
-* Test Backend (Para o Backend antes de rodar os testes)
-  * CREATE DATABASE communication_test (Criar database communication_test);
+* Test Backend (Para o Backend antes de rodar os testes):
+  * CREATE DATABASE communication_test; (Criar database communication_test);
   * Run test: npm test.
 
 2 - Frontend

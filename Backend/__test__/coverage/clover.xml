@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647436479044" clover="3.2.0">
-  <project timestamp="1647436479044" name="All files">
+<coverage generated="1647546629207" clover="3.2.0">
+  <project timestamp="1647546629207" name="All files">
     <metrics statements="45" coveredstatements="43" conditionals="22" coveredconditionals="21" methods="14" coveredmethods="12" elements="81" coveredelements="76" complexity="0" loc="45" ncloc="45" packages="1" files="2" classes="2"/>
-    <file name="communication.js" path="C:\Users\felip\OneDrive\Área de Trabalho\Projetos\Testes\Plataforma-de-Comunicacao\backend\api\communication.js">
+    <file name="communication.js" path="C:\Users\felip\Desktop\Projetos\React\Plataforma-de-Comunicacao\Backend\api\communication.js">
       <metrics statements="28" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="6"/>
       <line num="1" count="2" type="stmt"/>
       <line num="7" count="2" type="stmt"/>
@@ -33,7 +33,7 @@
       <line num="66" count="1" type="stmt"/>
       <line num="70" count="2" type="stmt"/>
     </file>
-    <file name="validation.js" path="C:\Users\felip\OneDrive\Área de Trabalho\Projetos\Testes\Plataforma-de-Comunicacao\backend\api\validation.js">
+    <file name="validation.js" path="C:\Users\felip\Desktop\Projetos\React\Plataforma-de-Comunicacao\Backend\api\validation.js">
       <metrics statements="17" coveredstatements="17" conditionals="22" coveredconditionals="21" methods="6" coveredmethods="6"/>
       <line num="1" count="2" type="stmt"/>
       <line num="3" count="16" type="cond" truecount="2" falsecount="0"/>
